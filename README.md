@@ -1,4 +1,4 @@
-# px2-report
+# px2-serve
 
 [Pickles 2](https://pickles2.pxt.jp/) の開発用ローカルサーバーを起動します。
 
