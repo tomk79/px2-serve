@@ -5,7 +5,23 @@
 
 ## Usage - 使い方
 
-TBD
+### インストール
+
+```
+composer require tomk79/px2-serve;
+```
+
+### セットアップ
+
+`px-files/config.php` に、 `tomk79\pickles2\px2serve\serve::register()` の設定を追加する。
+
+```php
+	// funcs: Before sitemap
+	$conf->funcs->before_sitemap = [
+		// px2-serve
+		tomk79\pickles2\px2serve\serve::register(),
+	];
+```
 
 ### サーバーを起動する
 
@@ -18,19 +34,10 @@ php path/to/.px_execute.php "/?PX=serve";
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-serve v0.1.0 (リリース日未定)
+### tomk79/px2-serve v0.1.0 (2022年4月17日)
 
 - Initial Release
 
-
-## for Developer
-
-### Test
-
-```bash
-$ cd {$documentRoot}
-$ ./vendor/phpunit/phpunit/phpunit
-```
 
 
 ## ライセンス - License
