@@ -1,0 +1,34 @@
+{
+    "name": "tomk79/px2-serve",
+    "description": "Pickles 2 の開発用ローカルサーバーを起動します。",
+    "keywords": ["pickles2"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomoya Koyanagi",
+            "email": "tomk79@gmail.com"
+        }
+    ],
+    "scripts":{
+        "test": [
+            "php ./vendor/phpunit/phpunit/phpunit"
+        ]
+    } ,
+    "require": {
+        "php": ">=7.3.0"
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "pickles2/px-fw-2.x": "~2",
+        "pickles2/px2-px2dthelper": "~2",
+        "pickles2/px2-sitemapexcel": "~2",
+        "phpunit/phpunit": "~9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "tomk79\\pickles2\\px2serve\\": [
+                "php"
+            ]
+        }
+    }
+}
