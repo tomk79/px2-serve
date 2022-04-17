@@ -23,16 +23,27 @@ composer require tomk79/px2-serve;
 	];
 ```
 
-### サーバーを起動する
+### プレビュー環境サーバーを起動する
 
 ```
 php path/to/.px_execute.php "/?PX=serve";
 ```
 
+### パブリッシュ環境サーバーを起動する
+
+```
+php path/to/.px_execute.php "/?PX=serve.pub";
+```
+
+
 起動したら、ブラウザで `http://localhost:8080/` にアクセスする。
 
 
 ## 更新履歴 - Change log
+
+### tomk79/px2-serve v0.1.1 (リリース日未定)
+
+- パブリッシュ環境を起動する `PX=serve.pub` を追加。
 
 ### tomk79/px2-serve v0.1.0 (2022年4月17日)
 

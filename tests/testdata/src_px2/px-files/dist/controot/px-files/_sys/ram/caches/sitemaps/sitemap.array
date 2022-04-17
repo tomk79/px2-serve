@@ -1,4 +1,0 @@
-<?php
-	/* UTF-8 */
-	return array('/index.html'=>array('path'=>'/index.html','content'=>'/index.html','id'=>'','title'=>'HOME','title_breadcrumb'=>'','title_h1'=>'','title_label'=>'','title_full'=>'','logical_path'=>'','article_flg'=>'','list_flg'=>'1','layout'=>'top','release_date'=>'','update_date'=>'','article_summary'=>'','orderby'=>'','keywords'=>'','description'=>'','category_top_flg'=>'','**delete_flg'=>''));
-?>
