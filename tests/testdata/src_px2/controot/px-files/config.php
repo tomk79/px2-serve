@@ -5,9 +5,9 @@ return call_user_func( function(){
 	$conf = new stdClass;
 
 	// project
-	$conf->name = 'px2-serve'; // サイト名
+	$conf->name = 'px2-serve (controot)'; // サイト名
 	$conf->domain = null; // ドメイン
-	$conf->path_controot = '/'; // コンテンツルートディレクトリ
+	$conf->path_controot = '/controot/'; // コンテンツルートディレクトリ
 
 	// paths
 	$conf->path_top = '/'; // トップページのパス(デフォルト "/")
