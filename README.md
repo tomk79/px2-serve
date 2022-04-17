@@ -7,6 +7,14 @@
 
 TBD
 
+### サーバーを起動する
+
+```
+php path/to/.px_execute.php "/?PX=serve";
+```
+
+起動したら、ブラウザで `http://localhost:8080/` にアクセスする。
+
 
 ## 更新履歴 - Change log
 
