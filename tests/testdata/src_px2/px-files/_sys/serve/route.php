@@ -1,8 +1,10 @@
 <?php
 chdir($_SERVER['DOCUMENT_ROOT']);
 $path = $_SERVER['REQUEST_URI'];
-$path_entryScript = './'.".px_execute.php";
-$script_name = '/'.".px_execute.php";
+$path_controot = '/';
+$path = preg_replace('/^'.preg_quote($path_controot, '/').'/', '/', $path);
+$path_entryScript = '.'.'/.px_execute.php';
+$script_name = '/.px_execute.php';
 $querystring = '';
 if( strpos($path, '?') !== false ){
     list($path, $querystring) = preg_split('/\?/', $_SERVER['REQUEST_URI'], 2);

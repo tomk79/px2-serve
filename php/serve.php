@@ -60,8 +60,10 @@ class serve{
 		$src .= '<'.'?php'."\n";
 		$src .= 'chdir($_SERVER[\'DOCUMENT_ROOT\']);'."\n";
 		$src .= '$path = $_SERVER[\'REQUEST_URI\'];'."\n";
-		$src .= '$path_entryScript = \'./\'.'.json_encode($entryScriptBasename).';'."\n";
-		$src .= '$script_name = \'/\'.'.json_encode($entryScriptBasename).';'."\n";
+		$src .= '$path_controot = '.var_export($path_controot, true).';'."\n";
+		$src .= '$path = preg_replace(\'/^\'.preg_quote($path_controot, \'/\').\'/\', \'/\', $path);'."\n";
+		$src .= '$path_entryScript = \'.\'.'.var_export($path_controot.$entryScriptBasename, true).';'."\n";
+		$src .= '$script_name = '.var_export($this->px->fs()->get_realpath('/'.$path_controot.$entryScriptBasename), true).';'."\n";
 		$src .= '$querystring = \'\';'."\n";
 		$src .= 'if( strpos($path, \'?\') !== false ){'."\n";
 		$src .= '    list($path, $querystring) = preg_split(\'/\?/\', $_SERVER[\'REQUEST_URI\'], 2);'."\n";
@@ -81,7 +83,11 @@ class serve{
 
 		// --------------------------------------
 		// サーバーを起動する
-		$cmd_serve = 'php -S localhost:8080 -t ./ '.$path_router;
+		$realpath_controot = $this->px->fs()->get_realpath(dirname($realpath_entryScript).'/');
+		$realpath_controot = preg_replace( '/'.preg_quote($path_controot, '/').'$/', '/', $realpath_controot );
+		$path_docroot = $this->px->fs()->get_relatedpath( $realpath_controot );
+
+		$cmd_serve = 'php -S localhost:8080 -t '.escapeshellarg($path_docroot).' '.escapeshellarg($path_router);
 		passthru($cmd_serve);
 		exit;
 	}
