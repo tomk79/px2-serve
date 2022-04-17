@@ -78,12 +78,11 @@ class serve{
 			$this->px->fs()->mkdir(dirname($realpath_router));
 			$this->px->fs()->save_file($realpath_router, $src);
 
-			$realpath_controot = $this->px->fs()->get_realpath(dirname($realpath_entryScript).'/');
-			$realpath_controot = preg_replace( '/'.preg_quote($path_controot, '/').'$/', '/', $realpath_controot );
-			$path_docroot = $this->px->fs()->get_relatedpath( $conf->path_publish_dir );
 
 			// --------------------------------------
 			// サーバーを起動する
+			$path_docroot = $this->px->fs()->get_relatedpath( $conf->path_publish_dir );
+
 			$cmd_serve = 'php -S localhost:8080 -t '.escapeshellarg($path_docroot).' '.escapeshellarg($path_router);
 			passthru($cmd_serve);
 			exit;
@@ -115,12 +114,13 @@ class serve{
 			$this->px->fs()->mkdir(dirname($realpath_router));
 			$this->px->fs()->save_file($realpath_router, $src);
 
+
+			// --------------------------------------
+			// サーバーを起動する
 			$realpath_controot = $this->px->fs()->get_realpath(dirname($realpath_entryScript).'/');
 			$realpath_controot = preg_replace( '/'.preg_quote($path_controot, '/').'$/', '/', $realpath_controot );
 			$path_docroot = $this->px->fs()->get_relatedpath( $realpath_controot );
 
-			// --------------------------------------
-			// サーバーを起動する
 			$cmd_serve = 'php -S localhost:8080 -t '.escapeshellarg($path_docroot).' '.escapeshellarg($path_router);
 			passthru($cmd_serve);
 			exit;
