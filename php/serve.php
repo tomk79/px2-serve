@@ -28,7 +28,6 @@ class serve{
 
 		$px->pxcmd()->register('serve', function($px){
 			(new self( $px ))->kick();
-			exit;
 		}, true);
 
 		return;
@@ -48,6 +47,9 @@ class serve{
 	 * サーバーを起動する
 	 */
 	private function kick(){
+		if( !$this->px->req()->is_cmd() ){
+			return;
+		}
 		$realpath_entryScript = $_SERVER['SCRIPT_FILENAME'];
 		$path_entryScript = $this->px->fs()->get_relatedpath($realpath_entryScript);
 		$entryScriptBasename = basename($realpath_entryScript);
