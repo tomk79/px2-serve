@@ -41,7 +41,7 @@ php path/to/.px_execute.php "/?PX=serve.pub";
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-serve v0.1.1 (リリース日未定)
+### tomk79/px2-serve v0.1.1 (2022年4月19日)
 
 - パブリッシュ環境を起動する `PX=serve.pub` を追加。
 
