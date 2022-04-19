@@ -1,6 +1,6 @@
 <?php
 /**
- * test for tomk79\px-remove-attr
+ * test for tomk79\px2-serve
  */
 
 class mainTest extends PHPUnit\Framework\TestCase{
