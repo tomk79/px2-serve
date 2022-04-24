@@ -99,7 +99,7 @@ class serve{
 			$src .= '$script_name = '.var_export($this->px->fs()->get_realpath('/'.$path_controot.$entryScriptBasename), true).';'."\n";
 			$src .= '$querystring = \'\';'."\n";
 			$src .= 'if( strpos($path, \'?\') !== false ){'."\n";
-			$src .= '    list($path, $querystring) = preg_split(\'/\?/\', $_SERVER[\'REQUEST_URI\'], 2);'."\n";
+			$src .= '    list($path, $querystring) = preg_split(\'/\?/\', $path, 2);'."\n";
 			$src .= '}'."\n";
 			$src .= 'if( strrpos($path, \'/\') === strlen($path)-1 || preg_match(\'/\.(?:html?|css|js)$/\', $path) ){'."\n";
 			$src .= '    $_SERVER[\'SCRIPT_FILENAME\'] = realpath($path_entryScript);'."\n";

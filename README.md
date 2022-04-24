@@ -41,6 +41,10 @@ php path/to/.px_execute.php "/?PX=serve.pub";
 
 ## 更新履歴 - Change log
 
+### tomk79/px2-serve v0.1.2 (2022年4月24日)
+
+- `$conf->controot` が深いパスに設定されている場合に、`$_SERVER['PATH_INFO]` が誤った値にセットされる不具合を修正。
+
 ### tomk79/px2-serve v0.1.1 (2022年4月19日)
 
 - パブリッシュ環境を起動する `PX=serve.pub` を追加。
