@@ -59,6 +59,10 @@ class serve{
 		$realpath_homedir = $this->px->get_realpath_homedir();
 		$realpath_router = $realpath_homedir.'_sys/serve/route.php';
 		$path_router = $this->px->fs()->get_relatedpath($realpath_router);
+		$serverName = $this->px->req()->get_param('S');
+		if( !is_string($serverName) || !strlen($serverName) ){
+			$serverName = 'localhost:8080';
+		}
 
 		$pxc = $this->px->get_px_command();
 
@@ -83,7 +87,7 @@ class serve{
 			// サーバーを起動する
 			$path_docroot = $this->px->fs()->get_relatedpath( $conf->path_publish_dir );
 
-			$cmd_serve = 'php -S localhost:8080 -t '.escapeshellarg($path_docroot).' '.escapeshellarg($path_router);
+			$cmd_serve = 'php -S '.escapeshellarg($serverName).' -t '.escapeshellarg($path_docroot).' '.escapeshellarg($path_router);
 			passthru($cmd_serve);
 			exit;
 		}else{
@@ -120,10 +124,6 @@ class serve{
 			$realpath_controot = $this->px->fs()->get_realpath(dirname($realpath_entryScript).'/');
 			$realpath_controot = preg_replace( '/'.preg_quote($path_controot, '/').'$/', '/', $realpath_controot );
 			$path_docroot = $this->px->fs()->get_relatedpath( $realpath_controot );
-			$serverName = $this->px->req()->get_param('S');
-			if( !is_string($serverName) || !strlen($serverName) ){
-				$serverName = 'localhost:8080';
-			}
 
 			$cmd_serve = 'php -S '.escapeshellarg($serverName).' -t '.escapeshellarg($path_docroot).' '.escapeshellarg($path_router);
 			passthru($cmd_serve);
