@@ -39,7 +39,20 @@ php path/to/.px_execute.php "/?PX=serve.pub";
 起動したら、ブラウザで `http://localhost:8080/` にアクセスする。
 
 
+## オプション
+
+### `S`: サーバー名を指定して起動する
+
+```
+php path/to/.px_execute.php "/?PX=serve&S=localhost:8080";
+```
+
+
 ## 更新履歴 - Change log
+
+### tomk79/px2-serve v0.1.3 (リリース日未定)
+
+- `S` オプションを追加。
 
 ### tomk79/px2-serve v0.1.2 (2022年4月24日)
 
