@@ -71,6 +71,7 @@ class serve{
 			$src_htaccess = file_get_contents($realpath_htaccess);
 			if( preg_match( '/RewriteCond \%\{REQUEST\_URI\} \/\(\.\*\?\\\\\.\(\?\:(.+?)\)\)\?\$/', $src_htaccess, $matched ) ){
 				$ext_ptn = $matched[1];
+				$ext_ptn = str_replace('/', '\/', $ext_ptn);
 			}
 		}
 
