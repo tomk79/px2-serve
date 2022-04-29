@@ -53,6 +53,7 @@ php path/to/.px_execute.php "/?PX=serve&S=localhost:8080";
 ### tomk79/px2-serve v0.1.3 (リリース日未定)
 
 - `S` オプションを追加。
+- `.htaccess` から `RewriteCond` 中の拡張子のパターンを取り込むようになった。
 
 ### tomk79/px2-serve v0.1.2 (2022年4月24日)
 
@@ -70,7 +71,8 @@ php path/to/.px_execute.php "/?PX=serve&S=localhost:8080";
 
 ## ライセンス - License
 
-MIT License https://opensource.org/licenses/mit-license.php
+MIT License
+https://opensource.org/licenses/mit-license.php
 
 
 ## 作者 - Author

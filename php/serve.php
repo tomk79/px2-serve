@@ -64,6 +64,16 @@ class serve{
 			$serverName = 'localhost:8080';
 		}
 
+		$realpath_htaccess = realpath('./.htaccess');
+		$src_htaccess = '';
+		$ext_ptn = 'html?|css|js';
+		if( is_file($realpath_htaccess) ){
+			$src_htaccess = file_get_contents($realpath_htaccess);
+			if( preg_match( '/RewriteCond \%\{REQUEST\_URI\} \/\(\.\*\?\\\\\.\(\?\:(.+?)\)\)\?\$/', $src_htaccess, $matched ) ){
+				$ext_ptn = $matched[1];
+			}
+		}
+
 		$pxc = $this->px->get_px_command();
 
 		echo '---------'."\n";
@@ -110,7 +120,7 @@ class serve{
 			$src .= 'if( strpos($path, \'?\') !== false ){'."\n";
 			$src .= '    list($path, $querystring) = preg_split(\'/\?/\', $path, 2);'."\n";
 			$src .= '}'."\n";
-			$src .= 'if( strrpos($path, \'/\') === strlen($path)-1 || preg_match(\'/\.(?:html?|css|js)$/\', $path) ){'."\n";
+			$src .= 'if( strrpos($path, \'/\') === strlen($path)-1 || preg_match(\'/\.(?:'.$ext_ptn.')$/\', $path) ){'."\n";
 			$src .= '    $_SERVER[\'SCRIPT_FILENAME\'] = realpath($path_entryScript);'."\n";
 			$src .= '    $_SERVER[\'SCRIPT_NAME\'] = $script_name;'."\n";
 			$src .= '    $_SERVER[\'PATH_INFO\'] = $path;'."\n";
