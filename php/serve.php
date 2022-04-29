@@ -66,6 +66,11 @@ class serve{
 
 		$pxc = $this->px->get_px_command();
 
+		echo '---------'."\n";
+		echo 'px2-server Starting Server...'."\n";
+		echo 'http://'.$serverName.$path_controot."\n";
+		echo ''."\n";
+
 		if( isset($pxc[1]) && $pxc[1] == 'pub' ){
 			// --------------------------------------
 			// パブリッシュ環境をサーブする
