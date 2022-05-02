@@ -50,7 +50,7 @@ php path/to/.px_execute.php "/?PX=serve&S=localhost:8080";
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-serve v0.1.3 (リリース日未定)
+### tomk79/px2-serve v0.1.3 (2022年5月2日)
 
 - `S` オプションを追加。
 - `.htaccess` から `RewriteCond` 中の拡張子のパターンを取り込むようになった。
