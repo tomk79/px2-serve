@@ -50,6 +50,10 @@ php path/to/.px_execute.php "/?PX=serve&S=localhost:8080";
 
 ## 更新履歴 - Change log
 
+### tomk79/px2-serve v0.1.4 (リリース日未定)
+
+- macOS と Windows との間で生じるルーティングファイルの差異を吸収した。
+
 ### tomk79/px2-serve v0.1.3 (2022年5月2日)
 
 - `S` オプションを追加。
